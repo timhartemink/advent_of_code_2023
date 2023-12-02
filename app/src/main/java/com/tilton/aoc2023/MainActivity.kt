@@ -33,7 +33,8 @@ class MainActivity : ComponentActivity() {
 
             2 -> {
                 val day2 = Day2()
-                day2.part1() to day2.part2()
+                val input = AssetReader.getInputAsList(assets, day)
+                day2.part1(input) to day2.part2(input)
             }
 
             else -> null
