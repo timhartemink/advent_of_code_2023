@@ -4,7 +4,7 @@ class Day2 {
     private val firstNumberRegex = "(\\d+)".toRegex()
     private val lastNumberRegex = "(\\d+)(?!.*\\d)".toRegex()
 
-    fun part1(input: List<String>): String {
+    fun part1(input: List<String>): Int {
         return input.sumOf { line ->
             val id = firstNumberRegex.find(line)?.value?.toInt() ?: error("Could not find game ID")
             val sets = line.substring(line.indexOf(":") + 1).split(";")
@@ -12,10 +12,10 @@ class Day2 {
                 id
             else
                 0
-        }.toString()
+        }
     }
 
-    fun part2(input: List<String>): String {
+    fun part2(input: List<String>): Int {
         return input.sumOf { line ->
             val sets = line.substring(line.indexOf(":") + 1).split(";")
             var maxRed = 0
@@ -32,7 +32,7 @@ class Day2 {
                 if (blue > maxBlue) maxBlue = blue
             }
             maxRed * maxGreen * maxBlue
-        }.toString()
+        }
     }
 
     private fun checkSetIsValid(set: String): Boolean {

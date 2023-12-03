@@ -1,7 +1,7 @@
 package com.tilton.aoc2023.solution
 
 class Day1 {
-    fun part1(input: List<String>): String {
+    fun part1(input: List<String>): Int {
         val total = input.map { line ->
             val firstDigit = line[line.indexOfFirst { it.isDigit() }]
             val lastDigit = line[line.indexOfLast { it.isDigit() }]
@@ -9,10 +9,10 @@ class Day1 {
             "$firstDigit$lastDigit".toInt()
         }
 
-        return total.sum().toString()
+        return total.sum()
     }
 
-    fun part2(input: List<String>): String {
+    fun part2(input: List<String>): Int {
         val total = input.map { line ->
             val firstDigit = getFirstDigitFromLine(line)
             val lastDigit = getLastDigitFromLine(line)
@@ -20,7 +20,7 @@ class Day1 {
             "$firstDigit$lastDigit".toInt()
         }
 
-        return total.sum().toString()
+        return total.sum()
     }
 
     private fun getFirstDigitFromLine(line: String): Int {

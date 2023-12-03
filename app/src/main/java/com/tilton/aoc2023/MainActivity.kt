@@ -3,14 +3,10 @@ package com.tilton.aoc2023
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import com.tilton.aoc2023.screen.Solutions
 import com.tilton.aoc2023.solution.Day1
 import com.tilton.aoc2023.solution.Day2
+import com.tilton.aoc2023.solution.Day3
 import com.tilton.aoc2023.theme.AOC2023Theme
 import com.tilton.aoc2023.util.AssetReader
 
@@ -23,7 +19,8 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-    private fun getAnswer(day: Int): Pair<String, String>? {
+
+    private fun getAnswer(day: Int): Pair<Int, Int>? {
         return when (day) {
             1 -> {
                 val day1 = Day1()
@@ -37,24 +34,13 @@ class MainActivity : ComponentActivity() {
                 day2.part1(input) to day2.part2(input)
             }
 
+            3 -> {
+                val day3 = Day3()
+                val input = AssetReader.getInputAsList(assets, day)
+                day3.part1(input) to day3.part2(input)
+            }
+
             else -> null
         }
-    }
-}
-
-@Composable
-fun Answer(value: String, modifier: Modifier = Modifier) {
-    Text(
-        text = value,
-        fontSize = 18.sp,
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AOC2023Theme {
-        Answer("42")
     }
 }

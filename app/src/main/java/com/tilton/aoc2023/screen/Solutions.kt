@@ -28,11 +28,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.tilton.aoc2023.Answer
 
 @Composable
 fun Solutions(
-    getAnswer: (Int) -> Pair<String, String>?
+    getAnswer: (Int) -> Pair<Int, Int>?
 ) {
     Box(
         modifier = Modifier
@@ -98,4 +97,13 @@ fun Solutions(
             }
         }
     }
+}
+
+@Composable
+fun Answer(value: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = value.toString(),
+        fontSize = 18.sp,
+        modifier = modifier
+    )
 }
