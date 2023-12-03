@@ -3,7 +3,14 @@ package com.tilton.aoc2023
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.tilton.aoc2023.screen.Solutions
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.tilton.aoc2023.navigation.BottomNavigationBar
+import com.tilton.aoc2023.navigation.NavigationGraph
 import com.tilton.aoc2023.solution.Day1
 import com.tilton.aoc2023.solution.Day2
 import com.tilton.aoc2023.solution.Day3
@@ -15,7 +22,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AOC2023Theme {
-                Solutions(::getAnswer)
+                MainScreenView(::getAnswer)
             }
         }
     }
@@ -42,5 +49,20 @@ class MainActivity : ComponentActivity() {
 
             else -> null
         }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+fun MainScreenView(getAnswer: (Int) -> Pair<Int, Int>?) {
+    val navController = rememberNavController()
+    Scaffold(
+        bottomBar = { BottomNavigationBar(navController = navController) }
+    ) {
+        NavigationGraph(
+            modifier = Modifier.consumeWindowInsets(it),
+            getAnswer = getAnswer,
+            navController = navController
+        )
     }
 }
