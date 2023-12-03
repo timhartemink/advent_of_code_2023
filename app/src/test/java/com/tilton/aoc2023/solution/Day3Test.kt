@@ -11,4 +11,12 @@ class Day3Test {
 
         assert(result == 4361)
     }
+
+    @Test
+    fun part2() {
+        val input = TestInputLoader.loadTestInput(3)
+        val result = Day3().part2(input)
+
+        assert(result == 467835)
+    }
 }
