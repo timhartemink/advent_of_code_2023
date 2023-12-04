@@ -102,8 +102,8 @@ fun Solutions(
                                     thickness = 2.dp,
                                     color = Color.DarkGray
                                 )
-                                Text(text = "Part 1: ${answer.part1}")
-                                Text(text = "Part 2: ${answer.part2}")
+                                Text(text = "Part 1: ${answer.part1 ?: "No solution yet"}")
+                                Text(text = "Part 2: ${answer.part2 ?: "No solution yet"}")
                             }
                         }
                     }

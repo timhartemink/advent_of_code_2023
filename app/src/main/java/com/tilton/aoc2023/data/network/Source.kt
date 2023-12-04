@@ -14,7 +14,6 @@ class Source(
     private val httpClient: HttpClient,
     private val dispatcher: CoroutineDispatcher
 ) {
-
     @Inject
     constructor(httpClient: HttpClient) : this(httpClient, Dispatchers.IO)
 

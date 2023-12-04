@@ -12,6 +12,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LeaderboardViewModel @Inject constructor(leaderboardRepository: LeaderboardRepository) : ViewModel() {
     val uiState = flow {
-        emit(UiState.Loaded(leaderboardRepository.getLeaderboard(System.currentTimeMillis())))
+        leaderboardRepository.getLeaderboard(System.currentTimeMillis())
+            .onFailure { emit(UiState.Error) }
+            .onSuccess { emit(UiState.Loaded(it)) }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(), UiState.Loading)
 }

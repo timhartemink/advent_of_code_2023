@@ -4,5 +4,6 @@ import com.tilton.aoc2023.domain.model.Leaderboard
 
 sealed interface UiState {
     data object Loading : UiState
+    data object Error : UiState
     data class Loaded(val leaderboard: Leaderboard) : UiState
 }
