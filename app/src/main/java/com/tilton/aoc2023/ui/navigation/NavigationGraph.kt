@@ -5,8 +5,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.tilton.aoc2023.ui.leaderboard.Leaderboard
-import com.tilton.aoc2023.ui.solutions.SolutionsRoute
+import com.tilton.aoc2023.ui.screens.leaderboard.LeaderboardRoute
+import com.tilton.aoc2023.ui.screens.solutions.SolutionsRoute
 
 @Composable
 fun NavigationGraph(
@@ -18,7 +18,7 @@ fun NavigationGraph(
             SolutionsRoute(modifier)
         }
         composable(BottomNavItem.Leaderboard.route) {
-            Leaderboard(modifier)
+            LeaderboardRoute(modifier)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.tilton.aoc2023.ui.solutions
+package com.tilton.aoc2023.ui.screens.solutions
 
 import com.tilton.aoc2023.domain.model.Answer
 

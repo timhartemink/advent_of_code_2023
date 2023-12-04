@@ -8,11 +8,15 @@ import io.ktor.client.request.get
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class LeaderboardApi(
+class Source(
     private val httpClient: HttpClient,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+    private val dispatcher: CoroutineDispatcher
 ) {
+
+    @Inject
+    constructor(httpClient: HttpClient) : this(httpClient, Dispatchers.IO)
 
     suspend fun getLeaderboard(): Leaderboard = withContext(dispatcher) {
         httpClient.get("https://adventofcode.com/2023/leaderboard/private/view/1026803.json") {
