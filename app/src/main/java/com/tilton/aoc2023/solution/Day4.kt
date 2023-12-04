@@ -4,21 +4,15 @@ import kotlin.math.pow
 
 class Day4 {
     fun part1(input: List<String>): Int {
-        val valuePerGame = mutableListOf<Int>()
-
-        input.forEach { line ->
+        return input.sumOf { line ->
             val winningNumbersLine = line.substring(line.indexOf(":") + 1, line.indexOf("|"))
             val cardNumbersLine = line.substring(line.indexOf("|") + 1)
             val winningNumbers = getNumbers(winningNumbersLine).toSet()
             val cardNumbers = getNumbers(cardNumbersLine).toSet()
 
             val amountOfWinningNumbersInCard = cardNumbers.size - (cardNumbers - winningNumbers).size
-            valuePerGame.add(
-                (2.toDouble().pow(amountOfWinningNumbersInCard - 1)).toInt()
-            )
+            (2.toDouble().pow(amountOfWinningNumbersInCard - 1)).toInt()
         }
-
-        return valuePerGame.sum()
     }
 
     private fun getNumbers(line: String): List<Int> {
@@ -54,6 +48,28 @@ class Day4 {
     }
 
     fun part2(input: List<String>): Int {
-        return -1
+        val copiesOfCard = mutableMapOf<Int, Int>()
+        input.forEach { line ->
+            val id = "(\\d+)".toRegex().find(line)?.value?.toInt() ?: error("Could not find card ID")
+            val winningNumbersLine = line.substring(line.indexOf(":") + 1, line.indexOf("|"))
+            val cardNumbersLine = line.substring(line.indexOf("|") + 1)
+            val winningNumbers = getNumbers(winningNumbersLine).toSet()
+            val cardNumbers = getNumbers(cardNumbersLine).toSet()
+
+            copiesOfCard.putOrAddValue(id, 1)
+            val amountOfCardsForId = copiesOfCard[id] ?: 1
+            val amountOfWinningNumbersInCard = (cardNumbers.size - (cardNumbers - winningNumbers).size)
+            for (i in id + 1..id + amountOfWinningNumbersInCard) {
+                copiesOfCard.putOrAddValue(i, amountOfCardsForId)
+            }
+        }
+
+        return copiesOfCard.map { it.value }.sum()
+    }
+
+    private fun MutableMap<Int, Int>.putOrAddValue(key: Int, amount: Int) {
+        this[key]?.let {
+            this[key] = it + amount
+        } ?: this.put(key, amount)
     }
 }

@@ -17,6 +17,6 @@ class Day4Test {
         val input = TestInputLoader.loadTestInput(4)
         val result = Day4().part2(input)
 
-        assert(result == -1)
+        assert(result == 30)
     }
 }
