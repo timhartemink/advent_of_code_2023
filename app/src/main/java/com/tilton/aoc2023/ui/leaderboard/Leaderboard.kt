@@ -1,4 +1,4 @@
-package com.tilton.aoc2023.screen
+package com.tilton.aoc2023.ui.leaderboard
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable

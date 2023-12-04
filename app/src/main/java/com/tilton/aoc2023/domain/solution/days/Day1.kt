@@ -1,7 +1,9 @@
-package com.tilton.aoc2023.solution
+package com.tilton.aoc2023.domain.solution.days
 
-class Day1 {
-    fun part1(input: List<String>): Int {
+import com.tilton.aoc2023.domain.solution.Solution
+
+class Day1(override val input: List<String>) : Solution {
+    override fun part1(): Int {
         val total = input.map { line ->
             val firstDigit = line[line.indexOfFirst { it.isDigit() }]
             val lastDigit = line[line.indexOfLast { it.isDigit() }]
@@ -12,7 +14,7 @@ class Day1 {
         return total.sum()
     }
 
-    fun part2(input: List<String>): Int {
+    override fun part2(): Int {
         val total = input.map { line ->
             val firstDigit = getFirstDigitFromLine(line)
             val lastDigit = getLastDigitFromLine(line)

@@ -1,10 +1,12 @@
-package com.tilton.aoc2023.solution
+package com.tilton.aoc2023.domain.solution.days
 
-class Day2 {
+import com.tilton.aoc2023.domain.solution.Solution
+
+class Day2(override val input: List<String>) : Solution {
     private val firstNumberRegex = "(\\d+)".toRegex()
     private val lastNumberRegex = "(\\d+)(?!.*\\d)".toRegex()
 
-    fun part1(input: List<String>): Int {
+    override fun part1(): Int {
         return input.sumOf { line ->
             val id = firstNumberRegex.find(line)?.value?.toInt() ?: error("Could not find game ID")
             val sets = line.substring(line.indexOf(":") + 1).split(";")
@@ -15,7 +17,7 @@ class Day2 {
         }
     }
 
-    fun part2(input: List<String>): Int {
+    override fun part2(): Int {
         return input.sumOf { line ->
             val sets = line.substring(line.indexOf(":") + 1).split(";")
             var maxRed = 0

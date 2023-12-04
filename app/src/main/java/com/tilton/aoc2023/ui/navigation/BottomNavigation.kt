@@ -1,4 +1,4 @@
-package com.tilton.aoc2023.navigation
+package com.tilton.aoc2023.ui.navigation
 
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem

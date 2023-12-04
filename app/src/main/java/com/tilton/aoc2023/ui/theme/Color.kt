@@ -1,4 +1,4 @@
-package com.tilton.aoc2023.theme
+package com.tilton.aoc2023.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,7 +1,9 @@
-package com.tilton.aoc2023.solution
+package com.tilton.aoc2023.domain.solution.days
 
-class Day3 {
-    fun part1(input: List<String>): Int {
+import com.tilton.aoc2023.domain.solution.Solution
+
+class Day3(override val input: List<String>) : Solution {
+    override fun part1(): Int {
         val (numbers, symbols) = getNumbersAndSymbols(input) { character ->
             character != '.'
         }
@@ -19,7 +21,7 @@ class Day3 {
         }.sumOf { it.value }
     }
 
-    fun part2(input: List<String>): Int {
+    override fun part2(): Int {
         val (numbers, symbols) = getNumbersAndSymbols(input) { character ->
             character == '*'
         }
