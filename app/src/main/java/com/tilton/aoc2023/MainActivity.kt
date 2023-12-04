@@ -14,6 +14,7 @@ import com.tilton.aoc2023.navigation.NavigationGraph
 import com.tilton.aoc2023.solution.Day1
 import com.tilton.aoc2023.solution.Day2
 import com.tilton.aoc2023.solution.Day3
+import com.tilton.aoc2023.solution.Day4
 import com.tilton.aoc2023.theme.AOC2023Theme
 import com.tilton.aoc2023.util.AssetReader
 
@@ -45,6 +46,12 @@ class MainActivity : ComponentActivity() {
                 val day3 = Day3()
                 val input = AssetReader.getInputAsList(assets, day)
                 day3.part1(input) to day3.part2(input)
+            }
+
+            4 -> {
+                val day4 = Day4()
+                val input = AssetReader.getInputAsList(assets, day)
+                day4.part1(input) to day4.part2(input)
             }
 
             else -> null
