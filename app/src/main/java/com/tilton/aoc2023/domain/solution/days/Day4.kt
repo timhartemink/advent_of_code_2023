@@ -1,6 +1,7 @@
 package com.tilton.aoc2023.domain.solution.days
 
 import com.tilton.aoc2023.domain.solution.Solution
+import com.tilton.aoc2023.util.getNumbers
 import kotlin.math.pow
 
 class Day4(override val input: List<String>) : Solution {
@@ -8,43 +9,11 @@ class Day4(override val input: List<String>) : Solution {
         return input.sumOf { line ->
             val winningNumbersLine = line.substring(line.indexOf(":") + 1, line.indexOf("|"))
             val cardNumbersLine = line.substring(line.indexOf("|") + 1)
-            val winningNumbers = getNumbers(winningNumbersLine).toSet()
-            val cardNumbers = getNumbers(cardNumbersLine).toSet()
+            val winningNumbers = winningNumbersLine.getNumbers().toSet()
+            val cardNumbers = cardNumbersLine.getNumbers().toSet()
 
             val amountOfWinningNumbersInCard = cardNumbers.size - (cardNumbers - winningNumbers).size
             (2.toDouble().pow(amountOfWinningNumbersInCard - 1)).toInt()
-        }
-    }
-
-    private fun getNumbers(line: String): List<Int> {
-        val numbers = mutableListOf<Int>()
-        var cachedNumber = ""
-        line.forEach { character ->
-            if (character.isDigit()) {
-                cachedNumber += character
-            } else {
-                if (storeCachedNumberIfNecessary(numbers, cachedNumber)) {
-                    cachedNumber = ""
-                }
-            }
-        }
-
-        if (storeCachedNumberIfNecessary(numbers, cachedNumber)) {
-            cachedNumber = ""
-        }
-
-        return numbers
-    }
-
-    private fun storeCachedNumberIfNecessary(
-        numbers: MutableList<Int>,
-        cachedNumber: String,
-    ): Boolean {
-        return if (cachedNumber.isNotEmpty()) {
-            numbers.add(cachedNumber.toInt())
-            true
-        } else {
-            false
         }
     }
 
@@ -54,8 +23,8 @@ class Day4(override val input: List<String>) : Solution {
             val id = "(\\d+)".toRegex().find(line)?.value?.toInt() ?: error("Could not find card ID")
             val winningNumbersLine = line.substring(line.indexOf(":") + 1, line.indexOf("|"))
             val cardNumbersLine = line.substring(line.indexOf("|") + 1)
-            val winningNumbers = getNumbers(winningNumbersLine).toSet()
-            val cardNumbers = getNumbers(cardNumbersLine).toSet()
+            val winningNumbers = winningNumbersLine.getNumbers().toSet()
+            val cardNumbers = cardNumbersLine.getNumbers().toSet()
 
             copiesOfCard.putOrAddValue(id, 1)
             val amountOfCardsForId = copiesOfCard[id] ?: 1
