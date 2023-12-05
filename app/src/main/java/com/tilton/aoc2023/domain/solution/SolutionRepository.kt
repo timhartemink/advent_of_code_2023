@@ -8,6 +8,7 @@ import com.tilton.aoc2023.domain.solution.days.Day1
 import com.tilton.aoc2023.domain.solution.days.Day2
 import com.tilton.aoc2023.domain.solution.days.Day3
 import com.tilton.aoc2023.domain.solution.days.Day4
+import com.tilton.aoc2023.domain.solution.days.Day5
 import com.tilton.aoc2023.util.AssetReader
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -49,12 +50,13 @@ class SolutionRepository(
     }
 
     private fun getSolutionForDay(day: Int): Solution? {
-        return AssetReader.getInputAsList(assetManager, day)?.let {
+        return AssetReader.getInputAsList(assetManager, day).getOrNull()?.let {
             when (day) {
                 1 -> Day1(it)
                 2 -> Day2(it)
                 3 -> Day3(it)
                 4 -> Day4(it)
+                5 -> Day5(it)
                 else -> null
             }
         }
