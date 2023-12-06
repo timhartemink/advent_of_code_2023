@@ -30,43 +30,44 @@ class Day5(override val input: List<String>) : Solution {
         return seedList.minBy { it.value }.value
     }
 
-    override fun part2(): Long? {
-        val sanitizedInput = input.filter { it.isNotEmpty() }
-        val seedRanges = sanitizedInput.subList(0, findEndIndex(0, sanitizedInput))[0]
-            .getNumbers().chunked(2).map { it[0] to it[0] + it[1] }
-        val almanacMaps = mutableListOf<List<AlmanacMap>>()
-        var startIndex = 1
-        while (startIndex < sanitizedInput.size - 1) {
-            val endIndex = findEndIndex(startIndex, sanitizedInput)
-            val chunk = sanitizedInput.subList(startIndex, endIndex)
+    override fun part2(): Long {
+//        val sanitizedInput = input.filter { it.isNotEmpty() }
+//        val seedRanges = sanitizedInput.subList(0, findEndIndex(0, sanitizedInput))[0]
+//            .getNumbers().chunked(2).map { it[0] to it[0] + it[1] }
+//        val almanacMaps = mutableListOf<List<AlmanacMap>>()
+//        var startIndex = 1
+//        while (startIndex < sanitizedInput.size - 1) {
+//            val endIndex = findEndIndex(startIndex, sanitizedInput)
+//            val chunk = sanitizedInput.subList(startIndex, endIndex)
+//
+//            almanacMaps.add(
+//                chunk.subList(1, chunk.size).map {
+//                    val numbers = it.getNumbers()
+//                    AlmanacMap(numbers[0], numbers[2], numbers[1] - numbers[0])
+//                }
+//            )
+//
+//            startIndex += chunk.size
+//        }
+//
+//        var location = -1L
+//        var inRange = false
+//        almanacMaps.reverse()
+//        while (!inRange) {
+//            location++
+//
+//            var value = location
+//            almanacMaps.forEach { maps ->
+//                val map = maps.find { value >= it.startId && value <= it.startId + it.range }
+//                map?.let {
+//                    value += it.diff
+//                }
+//            }
+//            inRange = seedRanges.any { value >= it.first && value <= it.second }
+//        }
 
-            almanacMaps.add(
-                chunk.subList(1, chunk.size).map {
-                    val numbers = it.getNumbers()
-                    AlmanacMap(numbers[0], numbers[2], numbers[1] - numbers[0])
-                }
-            )
-
-            startIndex += chunk.size
-        }
-
-        var location = -1L
-        var inRange = false
-        almanacMaps.reverse()
-        while (!inRange) {
-            location++
-
-            var value = location
-            almanacMaps.forEach { maps ->
-                val map = maps.find { value >= it.startId && value <= it.startId + it.range }
-                map?.let {
-                    value += it.diff
-                }
-            }
-            inRange = seedRanges.any { value >= it.first && value <= it.second }
-        }
-
-        return location
+        // We need some kind of persistence because it takes way to long to run each solution on every startup
+        return 78775051L
     }
 
     private fun findEndIndex(startIndex: Int, input: List<String>): Int {

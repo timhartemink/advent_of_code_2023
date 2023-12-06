@@ -9,6 +9,7 @@ import com.tilton.aoc2023.domain.solution.days.Day2
 import com.tilton.aoc2023.domain.solution.days.Day3
 import com.tilton.aoc2023.domain.solution.days.Day4
 import com.tilton.aoc2023.domain.solution.days.Day5
+import com.tilton.aoc2023.domain.solution.days.Day6
 import com.tilton.aoc2023.util.AssetReader
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -57,6 +58,7 @@ class SolutionRepository(
                 3 -> Day3(it)
                 4 -> Day4(it)
                 5 -> Day5(it)
+                6 -> Day6(it)
                 else -> null
             }
         }

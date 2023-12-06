@@ -1,5 +1,6 @@
 package com.tilton.aoc2023.ui.screens.leaderboard
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,7 +37,7 @@ fun LeaderboardRoute(modifier: Modifier = Modifier, viewModel: LeaderboardViewMo
 
 @Composable
 fun Leaderboard(uiState: UiState, modifier: Modifier = Modifier) {
-    Box(modifier = modifier) {
+    Box(modifier = modifier.background(Color.White)) {
         when (uiState) {
             is UiState.Loading -> {
                 Box(modifier = Modifier.fillMaxSize()) {
@@ -71,17 +72,17 @@ fun Leaderboard(uiState: UiState, modifier: Modifier = Modifier) {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                     ) {
-                        Text(modifier = Modifier.weight(0.1f), text = "Rank")
-                        Text(modifier = Modifier.weight(0.7f), text = "Name")
+                        Text(modifier = Modifier.weight(0.2f), text = "Rank")
+                        Text(modifier = Modifier.weight(0.4f), text = "Name")
                         Icon(
                             modifier = Modifier
-                                .weight(0.1f)
+                                .weight(0.2f)
                                 .offset(x = (-12).dp),
                             imageVector = Icons.Filled.Star,
                             contentDescription = "Star count",
                             tint = Color.Green
                         )
-                        Text(modifier = Modifier.weight(0.1f), text = "Score")
+                        Text(modifier = Modifier.weight(0.2f), text = "Score")
                     }
                     Divider(
                         modifier = Modifier
@@ -99,10 +100,10 @@ fun Leaderboard(uiState: UiState, modifier: Modifier = Modifier) {
                             Row(
                                 modifier = Modifier.fillMaxWidth(),
                             ) {
-                                Text(modifier = Modifier.weight(0.1f), text = "${index + 1}")
-                                Text(modifier = Modifier.weight(0.7f), text = member.name)
-                                Text(modifier = Modifier.weight(0.1f), text = "${member.stars}")
-                                Text(modifier = Modifier.weight(0.1f), text = "${member.score}")
+                                Text(modifier = Modifier.weight(0.2f), text = "${index + 1}")
+                                Text(modifier = Modifier.weight(0.4f), text = member.name)
+                                Text(modifier = Modifier.weight(0.2f), text = "${member.stars}")
+                                Text(modifier = Modifier.weight(0.2f), text = "${member.score}")
                             }
                         }
                     }

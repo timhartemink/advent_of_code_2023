@@ -3,8 +3,7 @@ package com.tilton.aoc2023
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.consumeWindowInsets
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -26,7 +25,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MainScreenView() {
     val navController = rememberNavController()
@@ -34,7 +32,7 @@ fun MainScreenView() {
         bottomBar = { BottomNavigationBar(navController = navController) }
     ) {
         NavigationGraph(
-            modifier = Modifier.consumeWindowInsets(it),
+            modifier = Modifier.padding(it),
             navController = navController
         )
     }
