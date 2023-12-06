@@ -5,7 +5,7 @@ import com.tilton.aoc2023.util.getNumbers
 import kotlin.math.pow
 
 class Day4(override val input: List<String>) : Solution {
-    override fun part1(): Int {
+    override fun part1(): Long {
         return input.sumOf { line ->
             val winningNumbersLine = line.substring(line.indexOf(":") + 1, line.indexOf("|"))
             val cardNumbersLine = line.substring(line.indexOf("|") + 1)
@@ -13,11 +13,11 @@ class Day4(override val input: List<String>) : Solution {
             val cardNumbers = cardNumbersLine.getNumbers().toSet()
 
             val amountOfWinningNumbersInCard = cardNumbers.size - (cardNumbers - winningNumbers).size
-            (2.toDouble().pow(amountOfWinningNumbersInCard - 1)).toInt()
+            (2.toDouble().pow(amountOfWinningNumbersInCard - 1)).toLong()
         }
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         val copiesOfCard = mutableMapOf<Int, Int>()
         input.forEach { line ->
             val id = "(\\d+)".toRegex().find(line)?.value?.toInt() ?: error("Could not find card ID")
@@ -34,7 +34,7 @@ class Day4(override val input: List<String>) : Solution {
             }
         }
 
-        return copiesOfCard.map { it.value }.sum()
+        return copiesOfCard.map { it.value }.sum().toLong()
     }
 
     private fun MutableMap<Int, Int>.putOrAddValue(key: Int, amount: Int) {

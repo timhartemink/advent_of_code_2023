@@ -9,7 +9,7 @@ class Day1Test {
         val input = listOf("1abc2", "pqr3stu8vwx", "a1b2c3d4e5f", "treb7uchet")
         val result = Day1(input).part1()
 
-        assert(result == 142)
+        assert(result == 142L)
     }
 
     @Test
@@ -17,6 +17,6 @@ class Day1Test {
         val input = TestInputLoader.loadTestInput(1)
         val result = Day1(input).part2()
 
-        assert(result == 281)
+        assert(result == 281L)
     }
 }

@@ -3,7 +3,7 @@ package com.tilton.aoc2023.domain.solution.days
 import com.tilton.aoc2023.domain.solution.Solution
 
 class Day3(override val input: List<String>) : Solution {
-    override fun part1(): Int {
+    override fun part1(): Long {
         val (numbers, symbols) = getNumbersAndSymbols(input) { character ->
             character != '.'
         }
@@ -18,10 +18,10 @@ class Day3(override val input: List<String>) : Solution {
                                 number.range.first - 1 == it.position ||
                                 number.range.last + 1 == it.position)
             }
-        }.sumOf { it.value }
+        }.sumOf { it.value }.toLong()
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         val (numbers, symbols) = getNumbersAndSymbols(input) { character ->
             character == '*'
         }
@@ -42,7 +42,7 @@ class Day3(override val input: List<String>) : Solution {
             } else {
                 0
             }
-        }
+        }.toLong()
     }
 
     private fun getNumbersAndSymbols(

@@ -6,7 +6,7 @@ class Day2(override val input: List<String>) : Solution {
     private val firstNumberRegex = "(\\d+)".toRegex()
     private val lastNumberRegex = "(\\d+)(?!.*\\d)".toRegex()
 
-    override fun part1(): Int {
+    override fun part1(): Long {
         return input.sumOf { line ->
             val id = firstNumberRegex.find(line)?.value?.toInt() ?: error("Could not find game ID")
             val sets = line.substring(line.indexOf(":") + 1).split(";")
@@ -14,10 +14,10 @@ class Day2(override val input: List<String>) : Solution {
                 id
             else
                 0
-        }
+        }.toLong()
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         return input.sumOf { line ->
             val sets = line.substring(line.indexOf(":") + 1).split(";")
             var maxRed = 0
@@ -34,7 +34,7 @@ class Day2(override val input: List<String>) : Solution {
                 if (blue > maxBlue) maxBlue = blue
             }
             maxRed * maxGreen * maxBlue
-        }
+        }.toLong()
     }
 
     private fun checkSetIsValid(set: String): Boolean {

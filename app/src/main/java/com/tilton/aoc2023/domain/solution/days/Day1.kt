@@ -3,7 +3,7 @@ package com.tilton.aoc2023.domain.solution.days
 import com.tilton.aoc2023.domain.solution.Solution
 
 class Day1(override val input: List<String>) : Solution {
-    override fun part1(): Int {
+    override fun part1(): Long {
         val total = input.map { line ->
             val firstDigit = line[line.indexOfFirst { it.isDigit() }]
             val lastDigit = line[line.indexOfLast { it.isDigit() }]
@@ -11,10 +11,10 @@ class Day1(override val input: List<String>) : Solution {
             "$firstDigit$lastDigit".toInt()
         }
 
-        return total.sum()
+        return total.sum().toLong()
     }
 
-    override fun part2(): Int {
+    override fun part2(): Long {
         val total = input.map { line ->
             val firstDigit = getFirstDigitFromLine(line)
             val lastDigit = getLastDigitFromLine(line)
@@ -22,7 +22,7 @@ class Day1(override val input: List<String>) : Solution {
             "$firstDigit$lastDigit".toInt()
         }
 
-        return total.sum()
+        return total.sum().toLong()
     }
 
     private fun getFirstDigitFromLine(line: String): Int {
