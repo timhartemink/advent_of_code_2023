@@ -77,7 +77,7 @@ fun Leaderboard(uiState: UiState, modifier: Modifier = Modifier) {
                         Icon(
                             modifier = Modifier
                                 .weight(0.2f)
-                                .offset(x = (-12).dp),
+                                .offset(x = (-24).dp),
                             imageVector = Icons.Filled.Star,
                             contentDescription = "Star count",
                             tint = Color.Green
