@@ -10,13 +10,13 @@ class Day7Test {
     fun part1() {
         val result = Day7(input).part1()
 
-        assert(result == null)
+        assert(result == 6440L)
     }
 
     @Test
     fun part2() {
         val result = Day7(input).part2()
 
-        assert(result == null)
+        assert(result == 5905L)
     }
 }
