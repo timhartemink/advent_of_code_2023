@@ -5,6 +5,7 @@ import android.util.Log
 import com.tilton.aoc2023.BuildConfig
 import com.tilton.aoc2023.domain.model.Answer
 import com.tilton.aoc2023.domain.solution.days.Day1
+import com.tilton.aoc2023.domain.solution.days.Day10
 import com.tilton.aoc2023.domain.solution.days.Day2
 import com.tilton.aoc2023.domain.solution.days.Day3
 import com.tilton.aoc2023.domain.solution.days.Day4
@@ -65,6 +66,7 @@ class SolutionRepository(
                 7 -> Day7(it)
                 8 -> Day8(it)
                 9 -> Day9(it)
+                10 -> Day10(it)
                 else -> null
             }
         }
