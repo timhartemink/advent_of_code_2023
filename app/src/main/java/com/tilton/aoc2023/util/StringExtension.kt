@@ -4,7 +4,7 @@ fun String.getNumbers(): List<Long> {
     val numbers = mutableListOf<Long>()
     var cachedNumber = ""
     forEach { character ->
-        if (character.isDigit()) {
+        if (character.isDigit() || character == '-' || (character >= 48.toChar() && character <= 57.toChar())) {
             cachedNumber += character
         } else {
             if (storeCachedNumberIfNecessary(numbers, cachedNumber)) {
