@@ -1,6 +1,6 @@
 package com.tilton.aoc2023.ui.screens.leaderboard
 
-import com.tilton.aoc2023.domain.model.Leaderboard
+import com.tilton.aoc2023.domain.leaderboard.model.Leaderboard
 
 sealed interface UiState {
     data object Loading : UiState

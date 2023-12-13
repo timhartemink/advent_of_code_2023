@@ -1,11 +1,11 @@
 package com.tilton.aoc2023.domain.leaderboard
 
-import com.tilton.aoc2023.domain.model.Leaderboard
+import com.tilton.aoc2023.domain.leaderboard.model.Leaderboard
 import javax.inject.Inject
 import com.tilton.aoc2023.data.database.Source as DatabaseSource
 import com.tilton.aoc2023.data.database.model.Member as DatabaseMember
 import com.tilton.aoc2023.data.network.Source as NetworkSource
-import com.tilton.aoc2023.domain.model.Member as DomainMember
+import com.tilton.aoc2023.domain.leaderboard.model.Member as DomainMember
 
 class LeaderboardRepository @Inject constructor(
     private val networkSource: NetworkSource,

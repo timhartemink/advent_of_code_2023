@@ -3,7 +3,6 @@ package com.tilton.aoc2023.domain.solution
 import android.content.res.AssetManager
 import android.util.Log
 import com.tilton.aoc2023.BuildConfig
-import com.tilton.aoc2023.domain.model.Answer
 import com.tilton.aoc2023.domain.solution.days.Day1
 import com.tilton.aoc2023.domain.solution.days.Day10
 import com.tilton.aoc2023.domain.solution.days.Day2
@@ -14,6 +13,7 @@ import com.tilton.aoc2023.domain.solution.days.Day6
 import com.tilton.aoc2023.domain.solution.days.Day7
 import com.tilton.aoc2023.domain.solution.days.Day8
 import com.tilton.aoc2023.domain.solution.days.Day9
+import com.tilton.aoc2023.domain.solution.model.Answer
 import com.tilton.aoc2023.util.AssetReader
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
